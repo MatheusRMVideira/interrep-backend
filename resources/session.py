@@ -53,6 +53,7 @@ def FBLogin():
         role_id = 1,
         regDate = time.time(),
         coins = 0,
+        fem_coins = 0,
         picture = fbresponse['picture']['data']['url']
     )
     db.session.add(user)

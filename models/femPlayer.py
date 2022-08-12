@@ -12,7 +12,7 @@ from models.femPlayercall import fem_playercall_table
 from models.femPlayerpoints import FemPlayerPoints
 
 class Positions(enum.Enum):
-    Goleiro = 1
+    Goleira = 1
     Linha = 2
 
 class FemPlayer(db.Model):

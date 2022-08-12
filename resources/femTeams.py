@@ -28,9 +28,9 @@ def GetAllTeams():
 @Auth
 def GetOwnTeams():
     user = getUserFromRequest()
-    if len(user.teams) == 0:
+    if len(user.fem_teams) == 0:
         return jsonify({"error":"you don't have a team"}), 400
-    return jsonify(user.teams[0].toJSON()),200;
+    return jsonify(user.fem_teams[0].toJSON()),200;
 
 @bp_teams_fem.route('/', methods = ['POST'])
 @Auth
@@ -81,7 +81,7 @@ def ChangeTeamPlayers():
     hasGK = 0
     for p in players:
         print(p)
-        if p.position.name == "Goleiro":
+        if p.position.name == "Goleira":
             hasGK += 1
     if hasGK != 1:
         return jsonify({"error":"Seu time deve ter exatamente 1 goleiro"}), 400

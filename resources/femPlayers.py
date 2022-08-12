@@ -95,9 +95,9 @@ def MostPoints():
     #return jsonify([p.toJSONmin() for p in players]),200
     points = [{"points":p.points,"player":list(filter(lambda x: x['id'] == p.player_id, players))[0]} for p in points]
     print("json")
-    pointsGoleiro = list(filter(lambda x: x['player']['position'] == "Goleiro", points))
+    pointsGoleira = list(filter(lambda x: x['player']['position'] == "Goleira", points))
     pointsLinha = list(filter(lambda x: x['player']['position'] == "Linha", points))
-    return jsonify({"Goleiro":pointsGoleiro[:1],"Linha":pointsLinha[:4]}), 200
+    return jsonify({"Goleira":pointsGoleira[:1],"Linha":pointsLinha[:4]}), 200
 
 @bp_players_fem.route('/most-choosen', methods = ['GET'])
 @Auth
@@ -108,9 +108,9 @@ def MostChoosen():
         players[index] = players[index].toJSON()
         players[index]['n_teams']  = n_teams
     players.sort(key=lambda player: player['n_teams'], reverse=True)
-    goleiros = list(filter(lambda x: x['position'] == "Goleiro", players))
+    goleiros = list(filter(lambda x: x['position'] == "Goleira", players))
     linhas = list(filter(lambda x: x['position'] == "Linha", players))
-    return jsonify({"Goleiro":goleiros[:1],"Linha":linhas[:4]}), 200
+    return jsonify({"Goleira":goleiros[:1],"Linha":linhas[:4]}), 200
 
 @bp_players_fem.route('/<int:player_id>/bench', methods = ['PUT'])
 @Auth
