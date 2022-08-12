@@ -1,0 +1,4 @@
+#!/bin/bash
+. venv/bin/activate
+export LC_ALL=en_US.utf8
+FLASK_APP=main.py FLASK_DEBUG=1 flask run --with-threads --port=5000
